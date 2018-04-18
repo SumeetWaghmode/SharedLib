@@ -14,7 +14,7 @@
                     checkout scm
                 }
                 stage ('Build') {
-                    sh "echo 'building ${config.projectName} ...'"
+                    sh "echo 'building ...'"
                 }
                 stage ('Tests') {
                     parallel 'static': {
