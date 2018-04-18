@@ -14,21 +14,21 @@
                     checkout scm
                 }
                 stage ('Build') {
-                    sh "echo 'building ...'"
+                    println "Current Build"
                 }
                 stage ('Tests') {
                     parallel 'static': {
-                        sh "echo 'shell scripts to run static tests...'"
+                        println "Current Build"
                     },
                     'unit': {
-                        sh "echo 'shell scripts to run unit tests...'"
+                         println "Current Build"
                     },
                     'integration': {
-                        sh "echo 'shell scripts to run integration tests...'"
+                        println "Current Build"
                     }
                 }
                 stage ('Deploy') {
-                    sh "echo 'deploying to server ${config.serverDomain}...'"
+                     println "Current Build"
                 }
             } catch (err) {
                 currentBuild.result = 'FAILED'
