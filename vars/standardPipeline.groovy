@@ -1,38 +1,5 @@
- def call(body) {
+#!/usr/bin/env groovy
 
-        def config = [:]
-        body.resolveStrategy = Closure.DELEGATE_FIRST
-        body.delegate = config
-        body()
-
-        node {
-            // Clean workspace before doing anything
-            deleteDir()
-
-            try {
-                stage ('Clone') {
-                    checkout scm
-                }
-                stage ('Build') {
-                    println "Current Build"
-                }
-                stage ('Tests') {
-                    parallel 'static': {
-                        println "Current Build"
-                    },
-                    'unit': {
-                         println "Current Build"
-                    },
-                    'integration': {
-                        println "Current Build"
-                    }
-                }
-                stage ('Deploy') {
-                     println "Current Build"
-                }
-            } catch (err) {
-                currentBuild.result = 'FAILED'
-                throw err
-            }
-        }
-    }
+def call(String name = 'human') {
+  echo "Hello, ${name}."
+}
