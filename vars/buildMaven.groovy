@@ -7,7 +7,7 @@ def call(String workspaceLocation)
 	echo workspaceLocation
 	try {
 			bat """@echo on
-					set M2_HOME=E:\Apps\apache-maven-3.5.3
+					set M2_HOME=E:/Apps/apache-maven-3.5.3
 					cd /d %workspaceLocation%
 					mvn install"""
 
