@@ -9,7 +9,7 @@ def call(String workspaceLocation)
 			bat """@echo on
 					set M2_HOME=E:/Apps/apache-maven-3.5.3
 					set PATH=%PATH%;E:/Apps/apache-maven-3.5.3/bin
-					cd /d %workspaceLocation%
+					cd  ExportXlsService
 					mvn install"""
 
 			//archiveArtifacts artifacts: 'client_customization/client_binaries/**', fingerprint: true
