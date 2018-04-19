@@ -3,6 +3,7 @@
  * Note: You can only use this if you know that the node can use the base workspace
  */
 def call() {
-	def workDir = pwd();	
+	def workDir = pwd();
+	echo workDir
 	return workDir
 }
