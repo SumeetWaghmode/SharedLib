@@ -1,7 +1,9 @@
-def call() {
+def call() 
+{
 	//echo workspace
-	 {
-		if (isUnix()) {
+	 //{
+	if (isUnix()) 
+	{
 			vcsResult = checkout changelog: false, poll: false,
 			scm: [$class                           : 'GitSCM',
 				branches                         : [[name: refspec]],
@@ -25,7 +27,9 @@ def call() {
 			archiveArtifacts artifacts: 'gitCommitHash.txt', fingerprint: true
 			stash name: "lnxGitCommithash", includes: "gitCommitHash.txt"
 
-		} else {
+	} 
+	else
+	{
 			// Is windows
 
 			vcsResult = checkout changelog: false, poll: false,
@@ -40,9 +44,9 @@ def call() {
 			writeFile file: 'gitCommitHash.txt', text: "${vcsResult['GIT_COMMIT']}"
 			/*archiveArtifacts artifacts: 'gitCommitHash.txt', fingerprint: true
 			stash name: "winGitCommithash", includes: "gitCommitHash.txt" */
-		}
-
 	}
+
+	//}
 }
 
 return this
