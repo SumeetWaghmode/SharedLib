@@ -7,6 +7,7 @@ def call(String workspaceLocation)
 	echo workspaceLocation
 	try {
 			bat """@echo on
+					cd /d workspaceLocation
 					mvn install"""
 
 			//archiveArtifacts artifacts: 'client_customization/client_binaries/**', fingerprint: true
