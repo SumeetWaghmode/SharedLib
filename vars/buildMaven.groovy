@@ -7,6 +7,7 @@ def call(String workspaceLocation)
 	echo workspaceLocation
 	try {
 			bat """@echo on
+					set M2_HOME="E:\Apps\apache-maven-3.5.3"
 					cd /d workspaceLocation
 					mvn install"""
 
@@ -17,12 +18,7 @@ def call(String workspaceLocation)
 			//	testname = 'buildWinJars'
 			//}
 		} catch (Exception e) {
-			println "Error is --> " + e.getMessage()
-			reportTestResult {
-				classname = 'com.siemens.plm2020.build'
-				testname = 'buildWinJars'
-				failure = e.getMessage()
-			}
+			println "Error is --> " + e.getMessage()			
 			return e
 		}
 }
