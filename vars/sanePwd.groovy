@@ -4,6 +4,7 @@
  */
 def call() {
 	def workDir = pwd();
+	def test = pwd();
 	echo workDir
 	return workDir
 }
