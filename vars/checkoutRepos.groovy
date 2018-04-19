@@ -1,6 +1,6 @@
-def call(String workspace) {
-	echo workspace
-	dir(workspace) {
+def call() {
+	//echo workspace
+	 {
 		if (isUnix()) {
 			vcsResult = checkout changelog: false, poll: false,
 			scm: [$class                           : 'GitSCM',
