@@ -4,6 +4,7 @@
  */
 def call(String workspaceLocation) 
 {
+	echo workspaceLocation
 	try {
 			bat """@echo on
 					mvn install"""
