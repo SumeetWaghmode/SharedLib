@@ -3,6 +3,7 @@
  * @param release Name of the release
  */
 def call(String release) {
+	echo release
 	def releaseNodeMap = [
 		intranetv3: [
 			winBuildNode   : 'IEC_Build_Win',
