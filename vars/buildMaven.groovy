@@ -12,7 +12,7 @@ def call(String workspaceLocation)
 					cd  ExportXlsService
 					mvn install"""
 
-			archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+			archiveArtifacts artifacts: 'target/**', fingerprint: true
 			//stash name: "winJars", includes: "client_customization/client_binaries/**"
 			//reportTestResult {
 			//	classname = 'com.siemens.plm2020.build'
