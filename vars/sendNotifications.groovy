@@ -1,10 +1,10 @@
 def call(config)
-{
-	def status = config.buildChanged
+{	
 	def workDir = sanePwd()
 
-	def emailNotifications = 'piyush.deshpande.ext@siemens.com,nikhil.kumar.ext@siemens.com,watve.shantanu.ext@siemens.com,prasad.rajurkar.ext@siemens.com,anand.raja@siemens.com'
-	//def emailNotifications = 'piyush.deshpande.ext@siemens.com'
+	def emailNotifications = 'sumeet.waghmode@intelizign.com'
+	
+	echo workDir
 
 	dir(workDir) {
 		
