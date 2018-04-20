@@ -8,35 +8,9 @@ def call(config)
 
 	dir(workDir) {
 		
-		def subjectContents='Project-PLM2020 Branch-'+"${env.BRANCH_NAME}"+' Build Components-'+"${params.component_to_build}"+' '+"${currentBuild.displayName}"
+		def subjectContents='Building Maven Project'
 		
-		sh"""export LANG=en_US.utf8
-		rm -rfv Logs
-		rm -fv logs.zip"""
-		
-		logStashes = ['winJarsLog',
-		'winServerDllsLog',
-		'winBmideDllsLog',
-		'winBmidePackageLog',
-		'lnxServerSosLog',
-		'lnxBmideSosLog',
-		'lnxExecsLogs']
-		for (stashName in logStashes) {
-			try {
-				unstash(stashName)
-			}
-			catch (Exception e) {
-			}
-		}
-		
-			try {
-					sh"""export LANG=en_US.utf8
-		zip -r logs.zip Logs"""
-			}
-			catch (Exception e) {
-			}
-	
-		
+
 		if (currentBuild.currentResult == 'SUCCESS')
 		{
 			ansiColor('xterm') {
@@ -49,9 +23,6 @@ def call(config)
 			replyTo: emailNotifications,
 			attachLog: true,
 			compressLog: true,
-			attachmentsPattern:'logs.zip'
-			//attachmentsPattern:'/Logs/**/*.log'
-
 		}
 		else if ((currentBuild.currentResult == 'FAILURE'))
 		{
@@ -65,7 +36,6 @@ def call(config)
 			replyTo: emailNotifications,
 			attachLog: true,
 			compressLog: true,
-			attachmentsPattern:'logs.zip'
 		}
 		else if ((currentBuild.currentResult == 'UNSTABLE'))
 		{
@@ -79,7 +49,6 @@ def call(config)
 			replyTo: emailNotifications,
 			attachLog: true,
 			compressLog: true,
-			attachmentsPattern:'logs.zip'
 		}
 	}
 }
