@@ -6,11 +6,18 @@ def call(String workspaceLocation)
 {
 	echo workspaceLocation
 	try {
-			bat """@echo on
+			if (isUnix()) 
+			{
+			
+			}
+			else
+			{
+				bat """@echo on
 					set M2_HOME=E:/Apps/apache-maven-3.5.3
 					set PATH=%PATH%;E:/Apps/apache-maven-3.5.3/bin
 					cd  ExportXlsService
 					mvn install"""
+			}
 
 			archiveArtifacts artifacts: 'ExportXlsService/target/*.war*', fingerprint: true
 			stash name: "winJars", includes: "ExportXlsService/target/**"

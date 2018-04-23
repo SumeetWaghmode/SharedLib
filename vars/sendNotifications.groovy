@@ -11,7 +11,7 @@ def call(config)
 		def subjectContents='Building Maven Project'
 		
 
-		if (currentBuild.currentResult == 'SUCCESS')
+		/*if (currentBuild.currentResult == 'SUCCESS')
 		{
 			ansiColor('xterm') {
 				println "\033[1;32m Current Build Result:: ${currentBuild.currentResult} \033[0m"
@@ -49,6 +49,6 @@ def call(config)
 			replyTo: emailNotifications,
 			attachLog: true,
 			compressLog: true,
-		}
+		}*/
 	}
 }
