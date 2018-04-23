@@ -13,16 +13,16 @@ def call(config)
 
 		if (currentBuild.currentResult == 'SUCCESS')
 		{
-			ansiColor('xterm') {
+			/*ansiColor('xterm') {
 				println "\033[1;32m Current Build Result:: ${currentBuild.currentResult} \033[0m"
-			}
+			}*/
 			emailext body: '''${SCRIPT, template="groovy-html.template"}''',
 			mimeType: 'text/html',
 			subject: 'Build Success:'+subjectContents,
 			to: emailNotifications,
-			replyTo: emailNotifications,
-			attachLog: true,
-			compressLog: true,
+			//replyTo: emailNotifications,
+			//attachLog: true,
+			//compressLog: true,
 		}
 		/*else if ((currentBuild.currentResult == 'FAILURE'))
 		{
