@@ -6,21 +6,23 @@ def call(config)
 	
 	echo workDir
 
-	dir(workDir) {
+	dir(workDir) 
+	{
 		
 		def subjectContents='Building Maven Project'
 		
 
 		if (currentBuild.currentResult == 'SUCCESS')
 		{
+			echo 'Current Build is SUCCESSFul'
 			/*ansiColor('xterm') {
 				println "\033[1;32m Current Build Result:: ${currentBuild.currentResult} \033[0m"
-			}*/
+			}
 			emailext body: '''${SCRIPT, template="groovy-html.template"}''',
 			mimeType: 'text/html',
 			subject: 'Build Success:'+subjectContents,
 			to: emailNotifications,
-			//replyTo: emailNotifications,
+			//replyTo: emailNotifications,*/
 			//attachLog: true,
 			//compressLog: true,
 		}
