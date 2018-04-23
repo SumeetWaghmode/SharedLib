@@ -11,6 +11,9 @@ def call(config)
 		
 		def subjectContents='Building Maven Project'
 		
+		bat """@echo on
+				echo ${env.JAVA_HOME}
+					"""
 
 		if (currentBuild.currentResult == 'SUCCESS')
 		{
